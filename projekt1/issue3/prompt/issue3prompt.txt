@@ -1,0 +1,21 @@
+Issue #3: Implement authentication endpoints
+
+Beskrivning:
+Implementera register och login endpoints 
+med JWT-autentisering.
+
+Uppgifter:
+- [ ] POST /register tar emot username + password
+      och skapar ny användare i databasen
+- [ ] POST /login verifierar username + password
+      och returnerar en JWT-token
+- [ ] JWT-token signeras med en 
+      SECRET_KEY i config.py
+
+Acceptanskriterier:
+- /register returnerar bekräftelse 
+  "användare skapad" vid lyckat anrop
+- /login returnerar JWT-token 
+  vid korrekt inloggning
+- /login returnerar felmeddelande 
+  vid fel lösenord

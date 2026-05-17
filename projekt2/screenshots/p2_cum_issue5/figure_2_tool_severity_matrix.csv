@@ -1,0 +1,5 @@
+tool,critical,high,medium,low
+bandit,0,0,0,1
+detect-secrets,0,1,0,0
+pip-audit,0,24,0,0
+semgrep,0,0,1,0

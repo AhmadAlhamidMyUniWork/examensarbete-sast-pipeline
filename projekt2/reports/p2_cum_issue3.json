@@ -1,0 +1,459 @@
+{
+  "status": "ok",
+  "job_id": "dfeb0d76-0014-499d-a337-309fcc344f0c",
+  "extraction": {
+    "extracted_files": 17,
+    "skipped_files": 0,
+    "total_bytes": 15251
+  },
+  "summary": {
+    "severity_counts": {
+      "critical": 0,
+      "high": 25,
+      "medium": 1,
+      "low": 1
+    },
+    "total": 27
+  },
+  "decision": "FAIL",
+  "findings": [
+    {
+      "fingerprint": "3bf6962848f50cf5a5c1b14db51e184b6a434a7c138f334d5465badf6544dfda",
+      "category": "secrets",
+      "severity": "low",
+      "confidence": "medium",
+      "tool": "bandit",
+      "rule_id": "B106",
+      "file": ".\\app\\api\\auth.py",
+      "start_line": 91,
+      "end_line": 91,
+      "message": "Possible hardcoded password: 'bearer'",
+      "recommendation": "https://bandit.readthedocs.io/en/1.9.4/plugins/b106_hardcoded_password_funcarg.html",
+      "tools": [
+        "bandit"
+      ]
+    },
+    {
+      "fingerprint": "2d6e329773fa760c1317f3f8185f604fea3b51f085f4f5136398d236c9500f35",
+      "category": "auth",
+      "severity": "medium",
+      "confidence": "medium",
+      "tool": "semgrep",
+      "rule_id": "python.fastapi.security.wildcard-cors.wildcard-cors",
+      "file": "app\\main.py",
+      "start_line": 22,
+      "end_line": 22,
+      "message": "CORS policy allows any origin (using wildcard '*'). This is insecure and should be avoided.",
+      "recommendation": "Apply secure coding guidance for this rule.",
+      "tools": [
+        "semgrep"
+      ]
+    },
+    {
+      "fingerprint": "2449420a68dd9ef5f2b11c8bd1611564581b203bcddb88237702ea5fad4cb404",
+      "category": "secrets",
+      "severity": "high",
+      "confidence": "medium",
+      "tool": "detect-secrets",
+      "rule_id": "Secret Keyword",
+      "file": ".bandit.json",
+      "start_line": 239,
+      "end_line": 239,
+      "message": "Potential secret: Secret Keyword",
+      "recommendation": "Remove the secret from code. Rotate credentials. Store secrets in a vault / env vars.",
+      "tools": [
+        "detect-secrets"
+      ]
+    },
+    {
+      "fingerprint": "4afa973304c1a31e75786d7c6d2a90647c60fdbbff84aa5af814172ab6685dc5",
+      "category": "deps",
+      "severity": "high",
+      "confidence": "high",
+      "tool": "pip-audit",
+      "rule_id": "PYSEC-2024-38",
+      "file": "C:\\Users\\HP\\AppData\\Local\\Temp\\scan_dfeb0d76-0014-499d-a337-309fcc344f0c_7ngdhyfo\\project\\requirements.txt",
+      "start_line": 101382,
+      "end_line": 101382,
+      "message": "fastapi 0.95.0 vulnerable: PYSEC-2024-38 - FastAPI is a web framework for building APIs with Python 3.8+ based on standard Python type hints. When using form data, `python-multipart` uses a Regular Expression to parse the HTTP `Content-Type` h",
+      "recommendation": "Upgrade fastapi. Suggested fix versions: 0.109.1",
+      "tools": [
+        "pip-audit"
+      ]
+    },
+    {
+      "fingerprint": "0734ee3d83a40bb0eae256b96329e77d1a98eb32302682ba2d032708abfa639a",
+      "category": "deps",
+      "severity": "high",
+      "confidence": "high",
+      "tool": "pip-audit",
+      "rule_id": "GHSA-752w-5fwx-jx9f",
+      "file": "C:\\Users\\HP\\AppData\\Local\\Temp\\scan_dfeb0d76-0014-499d-a337-309fcc344f0c_7ngdhyfo\\project\\requirements.txt",
+      "start_line": 46423,
+      "end_line": 46423,
+      "message": "pyjwt 2.6.0 vulnerable: GHSA-752w-5fwx-jx9f - ## Summary  PyJWT does not validate the `crit` (Critical) Header Parameter defined in RFC 7515 \u00a74.1.11. When a JWS token contains a `crit` array listing extensions that PyJWT does not understand, the ",
+      "recommendation": "Upgrade pyjwt. Suggested fix versions: 2.12.0",
+      "tools": [
+        "pip-audit"
+      ]
+    },
+    {
+      "fingerprint": "a76f18ce141c4df2e7873f052222372693a7be8838410632d02c7a9faf991753",
+      "category": "deps",
+      "severity": "high",
+      "confidence": "high",
+      "tool": "pip-audit",
+      "rule_id": "PYSEC-2023-74",
+      "file": "C:\\Users\\HP\\AppData\\Local\\Temp\\scan_dfeb0d76-0014-499d-a337-309fcc344f0c_7ngdhyfo\\project\\requirements.txt",
+      "start_line": 636045,
+      "end_line": 636045,
+      "message": "requests 2.28.0 vulnerable: PYSEC-2023-74 - Requests is a HTTP library. Since Requests 2.3.0, Requests has been leaking Proxy-Authorization headers to destination servers when redirected to an HTTPS endpoint. This is a product of how we use `re",
+      "recommendation": "Upgrade requests. Suggested fix versions: 2.31.0",
+      "tools": [
+        "pip-audit"
+      ]
+    },
+    {
+      "fingerprint": "20055274d9b57f274d86b39d23acad27e5dd2be43cb0e058d397ed0f8456ca57",
+      "category": "deps",
+      "severity": "high",
+      "confidence": "high",
+      "tool": "pip-audit",
+      "rule_id": "GHSA-9wx4-h78v-vm56",
+      "file": "C:\\Users\\HP\\AppData\\Local\\Temp\\scan_dfeb0d76-0014-499d-a337-309fcc344f0c_7ngdhyfo\\project\\requirements.txt",
+      "start_line": 269510,
+      "end_line": 269510,
+      "message": "requests 2.28.0 vulnerable: GHSA-9wx4-h78v-vm56 - When using a `requests.Session`, if the first request to a given origin is made with `verify=False`, TLS certificate verification may remain disabled for all subsequent requests to that origin, even i",
+      "recommendation": "Upgrade requests. Suggested fix versions: 2.32.0",
+      "tools": [
+        "pip-audit"
+      ]
+    },
+    {
+      "fingerprint": "31e738c7e50b3675ac7634144b90852f92380acbe4b4328d53ef3b8f711f754d",
+      "category": "deps",
+      "severity": "high",
+      "confidence": "high",
+      "tool": "pip-audit",
+      "rule_id": "GHSA-9hjg-9r4m-mvj7",
+      "file": "C:\\Users\\HP\\AppData\\Local\\Temp\\scan_dfeb0d76-0014-499d-a337-309fcc344f0c_7ngdhyfo\\project\\requirements.txt",
+      "start_line": 73073,
+      "end_line": 73073,
+      "message": "requests 2.28.0 vulnerable: GHSA-9hjg-9r4m-mvj7 - ### Impact  Due to a URL parsing issue, Requests releases prior to 2.32.4 may leak .netrc credentials to third parties for specific maliciously-crafted URLs.  ### Workarounds For older versions of Req",
+      "recommendation": "Upgrade requests. Suggested fix versions: 2.32.4",
+      "tools": [
+        "pip-audit"
+      ]
+    },
+    {
+      "fingerprint": "bd0299459954c8cc4bcc7b75f4c51a07c8e8373c866105eaaa2cd4a4e3eef6c5",
+      "category": "deps",
+      "severity": "high",
+      "confidence": "high",
+      "tool": "pip-audit",
+      "rule_id": "GHSA-gc5v-m9x4-r6x2",
+      "file": "C:\\Users\\HP\\AppData\\Local\\Temp\\scan_dfeb0d76-0014-499d-a337-309fcc344f0c_7ngdhyfo\\project\\requirements.txt",
+      "start_line": 136810,
+      "end_line": 136810,
+      "message": "requests 2.28.0 vulnerable: GHSA-gc5v-m9x4-r6x2 - ### Impact The `requests.utils.extract_zipped_paths()` utility function uses a predictable filename when extracting files from zip archives into the system temporary directory. If the target file alre",
+      "recommendation": "Upgrade requests. Suggested fix versions: 2.33.0",
+      "tools": [
+        "pip-audit"
+      ]
+    },
+    {
+      "fingerprint": "e62911fb71048190c6d7b0d5a7c89175876d3debff37661560095697c56862e4",
+      "category": "deps",
+      "severity": "high",
+      "confidence": "high",
+      "tool": "pip-audit",
+      "rule_id": "GHSA-2jv5-9r88-3w3p",
+      "file": "C:\\Users\\HP\\AppData\\Local\\Temp\\scan_dfeb0d76-0014-499d-a337-309fcc344f0c_7ngdhyfo\\project\\requirements.txt",
+      "start_line": 440844,
+      "end_line": 440844,
+      "message": "python-multipart 0.0.5 vulnerable: GHSA-2jv5-9r88-3w3p - ### Summary  When using form data, `python-multipart` uses a Regular Expression to parse the HTTP `Content-Type` header, including options.  An attacker could send a custom-made `Content-Type` option ",
+      "recommendation": "Upgrade python-multipart. Suggested fix versions: 0.0.7",
+      "tools": [
+        "pip-audit"
+      ]
+    },
+    {
+      "fingerprint": "e35e89c48ecc7ecd687a159aa828b8c86fcc147c66c44675243548ebceb16816",
+      "category": "deps",
+      "severity": "high",
+      "confidence": "high",
+      "tool": "pip-audit",
+      "rule_id": "GHSA-59g5-xgcq-4qw3",
+      "file": "C:\\Users\\HP\\AppData\\Local\\Temp\\scan_dfeb0d76-0014-499d-a337-309fcc344f0c_7ngdhyfo\\project\\requirements.txt",
+      "start_line": 760698,
+      "end_line": 760698,
+      "message": "python-multipart 0.0.5 vulnerable: GHSA-59g5-xgcq-4qw3 - ### Summary  When parsing form data, `python-multipart` skips line breaks (CR `\\r` or LF `\\n`) in front of the first boundary and any tailing bytes after the last boundary. This happens one byte at a ",
+      "recommendation": "Upgrade python-multipart. Suggested fix versions: 0.0.18",
+      "tools": [
+        "pip-audit"
+      ]
+    },
+    {
+      "fingerprint": "19da23af369d83e2d8f1d3db7cfbd45f00836be455f821bbc7a30f6dbeea1066",
+      "category": "deps",
+      "severity": "high",
+      "confidence": "high",
+      "tool": "pip-audit",
+      "rule_id": "GHSA-wp53-j4wj-2cfg",
+      "file": "C:\\Users\\HP\\AppData\\Local\\Temp\\scan_dfeb0d76-0014-499d-a337-309fcc344f0c_7ngdhyfo\\project\\requirements.txt",
+      "start_line": 98717,
+      "end_line": 98717,
+      "message": "python-multipart 0.0.5 vulnerable: GHSA-wp53-j4wj-2cfg - ### Summary  A Path Traversal vulnerability exists when using non-default configuration options `UPLOAD_DIR` and `UPLOAD_KEEP_FILENAME=True`. An attacker can write uploaded files to arbitrary location",
+      "recommendation": "Upgrade python-multipart. Suggested fix versions: 0.0.22",
+      "tools": [
+        "pip-audit"
+      ]
+    },
+    {
+      "fingerprint": "95abfebb52527fa264f075a246ee7a3c896faf2b133595d1ccfbd230563d121d",
+      "category": "deps",
+      "severity": "high",
+      "confidence": "high",
+      "tool": "pip-audit",
+      "rule_id": "GHSA-mj87-hwqh-73pj",
+      "file": "C:\\Users\\HP\\AppData\\Local\\Temp\\scan_dfeb0d76-0014-499d-a337-309fcc344f0c_7ngdhyfo\\project\\requirements.txt",
+      "start_line": 686387,
+      "end_line": 686387,
+      "message": "python-multipart 0.0.5 vulnerable: GHSA-mj87-hwqh-73pj - ### Summary  A denial of service vulnerability exists when parsing crafted `multipart/form-data` requests with large preamble or epilogue sections.  ### Details  Two inefficient multipart parsing path",
+      "recommendation": "Upgrade python-multipart. Suggested fix versions: 0.0.26",
+      "tools": [
+        "pip-audit"
+      ]
+    },
+    {
+      "fingerprint": "d2618536b176bc73d2d7ad175835f7b9b3c33c5040a37a71e9233e189306d32d",
+      "category": "deps",
+      "severity": "high",
+      "confidence": "high",
+      "tool": "pip-audit",
+      "rule_id": "PYSEC-2023-221",
+      "file": "C:\\Users\\HP\\AppData\\Local\\Temp\\scan_dfeb0d76-0014-499d-a337-309fcc344f0c_7ngdhyfo\\project\\requirements.txt",
+      "start_line": 342380,
+      "end_line": 342380,
+      "message": "werkzeug 2.3.0 vulnerable: PYSEC-2023-221 - Werkzeug is a comprehensive WSGI web application library. If an upload of a file that starts with CR or LF and then is followed by megabytes of data without these characters: all of these bytes are ap",
+      "recommendation": "Upgrade werkzeug. Suggested fix versions: 2.3.8, 3.0.1",
+      "tools": [
+        "pip-audit"
+      ]
+    },
+    {
+      "fingerprint": "ee67e2f34e8b9f7269f5002f9c1c84096c4bd91adfd4025a30061e034eacde14",
+      "category": "deps",
+      "severity": "high",
+      "confidence": "high",
+      "tool": "pip-audit",
+      "rule_id": "GHSA-2g68-c3qc-8985",
+      "file": "C:\\Users\\HP\\AppData\\Local\\Temp\\scan_dfeb0d76-0014-499d-a337-309fcc344f0c_7ngdhyfo\\project\\requirements.txt",
+      "start_line": 842347,
+      "end_line": 842347,
+      "message": "werkzeug 2.3.0 vulnerable: GHSA-2g68-c3qc-8985 - The debugger in affected versions of Werkzeug can allow an attacker to execute code on a developer's machine under some circumstances. This requires the attacker to get the developer to interact with ",
+      "recommendation": "Upgrade werkzeug. Suggested fix versions: 3.0.3",
+      "tools": [
+        "pip-audit"
+      ]
+    },
+    {
+      "fingerprint": "acb6307a090d946ca469f68a8d772f2e62c5c5ab97665e9e0601522e2b524d0a",
+      "category": "deps",
+      "severity": "high",
+      "confidence": "high",
+      "tool": "pip-audit",
+      "rule_id": "GHSA-f9vj-2wh5-fj8j",
+      "file": "C:\\Users\\HP\\AppData\\Local\\Temp\\scan_dfeb0d76-0014-499d-a337-309fcc344f0c_7ngdhyfo\\project\\requirements.txt",
+      "start_line": 382429,
+      "end_line": 382429,
+      "message": "werkzeug 2.3.0 vulnerable: GHSA-f9vj-2wh5-fj8j - On Python < 3.11 on Windows, `os.path.isabs()` does not catch UNC paths like `//server/share`. Werkzeug's `safe_join()` relies on this check, and so can produce a path that is not safe, potentially al",
+      "recommendation": "Upgrade werkzeug. Suggested fix versions: 3.0.6",
+      "tools": [
+        "pip-audit"
+      ]
+    },
+    {
+      "fingerprint": "03618b246477c29948b8fdc5917fb603c9afb651f59b4381a29a9749ec6b943a",
+      "category": "deps",
+      "severity": "high",
+      "confidence": "high",
+      "tool": "pip-audit",
+      "rule_id": "GHSA-q34m-jh98-gwm2",
+      "file": "C:\\Users\\HP\\AppData\\Local\\Temp\\scan_dfeb0d76-0014-499d-a337-309fcc344f0c_7ngdhyfo\\project\\requirements.txt",
+      "start_line": 469751,
+      "end_line": 469751,
+      "message": "werkzeug 2.3.0 vulnerable: GHSA-q34m-jh98-gwm2 - Applications using Werkzeug to parse `multipart/form-data` requests are vulnerable to resource exhaustion. A specially crafted form body can bypass the `Request.max_form_memory_size` setting.   The `R",
+      "recommendation": "Upgrade werkzeug. Suggested fix versions: 3.0.6",
+      "tools": [
+        "pip-audit"
+      ]
+    },
+    {
+      "fingerprint": "5490e8323397008ab96c8b5e0d1195471e532838e95afb7b7119560465ae1453",
+      "category": "deps",
+      "severity": "high",
+      "confidence": "high",
+      "tool": "pip-audit",
+      "rule_id": "GHSA-hgf8-39gv-g3f2",
+      "file": "C:\\Users\\HP\\AppData\\Local\\Temp\\scan_dfeb0d76-0014-499d-a337-309fcc344f0c_7ngdhyfo\\project\\requirements.txt",
+      "start_line": 125463,
+      "end_line": 125463,
+      "message": "werkzeug 2.3.0 vulnerable: GHSA-hgf8-39gv-g3f2 - Werkzeug's `safe_join` function allows path segments with Windows device names. On Windows, there are special device names such as `CON`, `AUX`, etc that are implicitly present and readable in every d",
+      "recommendation": "Upgrade werkzeug. Suggested fix versions: 3.1.4",
+      "tools": [
+        "pip-audit"
+      ]
+    },
+    {
+      "fingerprint": "b71ee65e46b8c145d05ccb6848790ea4cf5154a92e2206f1d5635bcdd119e208",
+      "category": "deps",
+      "severity": "high",
+      "confidence": "high",
+      "tool": "pip-audit",
+      "rule_id": "GHSA-87hc-h4r5-73f7",
+      "file": "C:\\Users\\HP\\AppData\\Local\\Temp\\scan_dfeb0d76-0014-499d-a337-309fcc344f0c_7ngdhyfo\\project\\requirements.txt",
+      "start_line": 623545,
+      "end_line": 623545,
+      "message": "werkzeug 2.3.0 vulnerable: GHSA-87hc-h4r5-73f7 - Werkzeug's `safe_join` function allows path segments with Windows device names that have file extensions or trailing spaces. On Windows, there are special device names such as `CON`, `AUX`, etc that a",
+      "recommendation": "Upgrade werkzeug. Suggested fix versions: 3.1.5",
+      "tools": [
+        "pip-audit"
+      ]
+    },
+    {
+      "fingerprint": "0dcab2efa509a1fc54acbfb8a473713456a0d8eec144e3148413c13add397146",
+      "category": "deps",
+      "severity": "high",
+      "confidence": "high",
+      "tool": "pip-audit",
+      "rule_id": "GHSA-29vq-49wr-vm6x",
+      "file": "C:\\Users\\HP\\AppData\\Local\\Temp\\scan_dfeb0d76-0014-499d-a337-309fcc344f0c_7ngdhyfo\\project\\requirements.txt",
+      "start_line": 806778,
+      "end_line": 806778,
+      "message": "werkzeug 2.3.0 vulnerable: GHSA-29vq-49wr-vm6x - Werkzeug's `safe_join` function allows Windows device names as filenames if when preceded by other path segments.  This was previously reported as https://github.com/pallets/werkzeug/security/advisori",
+      "recommendation": "Upgrade werkzeug. Suggested fix versions: 3.1.6",
+      "tools": [
+        "pip-audit"
+      ]
+    },
+    {
+      "fingerprint": "a18fa2c8306fd5190d1c669386c1a609f9843a3100bd7867d9a8bbf1e4a41b6b",
+      "category": "deps",
+      "severity": "high",
+      "confidence": "high",
+      "tool": "pip-audit",
+      "rule_id": "PYSEC-2023-83",
+      "file": "C:\\Users\\HP\\AppData\\Local\\Temp\\scan_dfeb0d76-0014-499d-a337-309fcc344f0c_7ngdhyfo\\project\\requirements.txt",
+      "start_line": 263101,
+      "end_line": 263101,
+      "message": "starlette 0.26.1 vulnerable: PYSEC-2023-83 - Directory traversal vulnerability in Starlette versions 0.13.5 and later and prior to 0.27.0 allows a remote unauthenticated attacker to view files in a web service which was built using Starlette.",
+      "recommendation": "Upgrade starlette. Suggested fix versions: 0.27.0",
+      "tools": [
+        "pip-audit"
+      ]
+    },
+    {
+      "fingerprint": "f7300a6e7d35cc337c7c9e18283ddd5b5d73570bd5be26b897ba876384fad12f",
+      "category": "deps",
+      "severity": "high",
+      "confidence": "high",
+      "tool": "pip-audit",
+      "rule_id": "GHSA-f96h-pmfr-66vw",
+      "file": "C:\\Users\\HP\\AppData\\Local\\Temp\\scan_dfeb0d76-0014-499d-a337-309fcc344f0c_7ngdhyfo\\project\\requirements.txt",
+      "start_line": 881586,
+      "end_line": 881586,
+      "message": "starlette 0.26.1 vulnerable: GHSA-f96h-pmfr-66vw - ### Summary Starlette treats `multipart/form-data` parts without a `filename` as text form fields and buffers those in byte strings with no size limit. This allows an attacker to upload arbitrary larg",
+      "recommendation": "Upgrade starlette. Suggested fix versions: 0.40.0",
+      "tools": [
+        "pip-audit"
+      ]
+    },
+    {
+      "fingerprint": "8bb7ee49ad62fe6deef5e015ca270a705bedb645f8ff27524f7a095882ac5504",
+      "category": "deps",
+      "severity": "high",
+      "confidence": "high",
+      "tool": "pip-audit",
+      "rule_id": "GHSA-2c2j-9gv5-cj73",
+      "file": "C:\\Users\\HP\\AppData\\Local\\Temp\\scan_dfeb0d76-0014-499d-a337-309fcc344f0c_7ngdhyfo\\project\\requirements.txt",
+      "start_line": 572098,
+      "end_line": 572098,
+      "message": "starlette 0.26.1 vulnerable: GHSA-2c2j-9gv5-cj73 - ### Summary When parsing a multi-part form with large files (greater than the [default max spool size](https://github.com/encode/starlette/blob/fa5355442753f794965ae1af0f87f9fec1b9a3de/starlette/formp",
+      "recommendation": "Upgrade starlette. Suggested fix versions: 0.47.2",
+      "tools": [
+        "pip-audit"
+      ]
+    },
+    {
+      "fingerprint": "5ca94358d328494100923bec2d05d61612da21d5052b7bf31480995b77607af9",
+      "category": "deps",
+      "severity": "high",
+      "confidence": "high",
+      "tool": "pip-audit",
+      "rule_id": "GHSA-pq67-6m6q-mj2v",
+      "file": "C:\\Users\\HP\\AppData\\Local\\Temp\\scan_dfeb0d76-0014-499d-a337-309fcc344f0c_7ngdhyfo\\project\\requirements.txt",
+      "start_line": 451122,
+      "end_line": 451122,
+      "message": "urllib3 1.26.20 vulnerable: GHSA-pq67-6m6q-mj2v - urllib3 handles redirects and retries using the same mechanism, which is controlled by the `Retry` object. The most common way to disable redirects is at the request level, as follows:  ```python resp",
+      "recommendation": "Upgrade urllib3. Suggested fix versions: 2.5.0",
+      "tools": [
+        "pip-audit"
+      ]
+    },
+    {
+      "fingerprint": "6c3f9c1dc8802fd473b8ccd7d9e4a72d19dd7c0dda95d9896e369117e558e297",
+      "category": "deps",
+      "severity": "high",
+      "confidence": "high",
+      "tool": "pip-audit",
+      "rule_id": "GHSA-gm62-xv2j-4w53",
+      "file": "C:\\Users\\HP\\AppData\\Local\\Temp\\scan_dfeb0d76-0014-499d-a337-309fcc344f0c_7ngdhyfo\\project\\requirements.txt",
+      "start_line": 770567,
+      "end_line": 770567,
+      "message": "urllib3 1.26.20 vulnerable: GHSA-gm62-xv2j-4w53 - ## Impact  urllib3 supports chained HTTP encoding algorithms for response content according to RFC 9110 (e.g., `Content-Encoding: gzip, zstd`).  However, the number of links in the decompression chain",
+      "recommendation": "Upgrade urllib3. Suggested fix versions: 2.6.0",
+      "tools": [
+        "pip-audit"
+      ]
+    },
+    {
+      "fingerprint": "8c4ef63e3e17aabe8b15f9f993a9e800e0aae2e255230d4c486112a5bf9e9f05",
+      "category": "deps",
+      "severity": "high",
+      "confidence": "high",
+      "tool": "pip-audit",
+      "rule_id": "GHSA-2xpw-w6gg-jr37",
+      "file": "C:\\Users\\HP\\AppData\\Local\\Temp\\scan_dfeb0d76-0014-499d-a337-309fcc344f0c_7ngdhyfo\\project\\requirements.txt",
+      "start_line": 69402,
+      "end_line": 69402,
+      "message": "urllib3 1.26.20 vulnerable: GHSA-2xpw-w6gg-jr37 - ### Impact  urllib3's [streaming API](https://urllib3.readthedocs.io/en/2.5.0/advanced-usage.html#streaming-and-i-o) is designed for the efficient handling of large HTTP responses by reading the conte",
+      "recommendation": "Upgrade urllib3. Suggested fix versions: 2.6.0",
+      "tools": [
+        "pip-audit"
+      ]
+    },
+    {
+      "fingerprint": "c71e8ba384e03173a5f5b9da8446dad5be6dcf8af750433a909662b915f84075",
+      "category": "deps",
+      "severity": "high",
+      "confidence": "high",
+      "tool": "pip-audit",
+      "rule_id": "GHSA-38jv-5279-wg99",
+      "file": "C:\\Users\\HP\\AppData\\Local\\Temp\\scan_dfeb0d76-0014-499d-a337-309fcc344f0c_7ngdhyfo\\project\\requirements.txt",
+      "start_line": 853988,
+      "end_line": 853988,
+      "message": "urllib3 1.26.20 vulnerable: GHSA-38jv-5279-wg99 - ### Impact  urllib3's [streaming API](https://urllib3.readthedocs.io/en/2.6.2/advanced-usage.html#streaming-and-i-o) is designed for the efficient handling of large HTTP responses by reading the conte",
+      "recommendation": "Upgrade urllib3. Suggested fix versions: 2.6.3",
+      "tools": [
+        "pip-audit"
+      ]
+    }
+  ],
+  "tool_logs": {
+    "bandit": "[main]\tINFO\tprofile include tests: None\n[main]\tINFO\tprofile exclude tests: None\n[main]\tINFO\tcli include tests: None\n[main]\tINFO\tcli exclude tests: None\n[json]\tINFO\tJSON output written to file: C:\\Users\\HP\\AppData\\Local\\Temp\\scan_dfeb0d76-0014-499d-a337-309fcc344f0c_7ngdhyfo\\project\\.bandit.json\n",
+    "semgrep": null,
+    "detect-secrets": "{\n  \"version\": \"1.5.0\",\n  \"plugins_used\": [\n    {\n      \"name\": \"ArtifactoryDetector\"\n    },\n    {\n      \"name\": \"AWSKeyDetector\"\n    },\n    {\n      \"name\": \"AzureStorageKeyDetector\"\n    },\n    {\n      \"name\": \"Base64HighEntropyString\",\n      \"limit\": 4.5\n    },\n    {\n      \"name\": \"BasicAuthDetector\"\n    },\n    {\n      \"name\": \"CloudantDetector\"\n    },\n    {\n      \"name\": \"DiscordBotTokenDetector\"\n    },\n    {\n      \"name\": \"GitHubTokenDetector\"\n    },\n    {\n      \"name\": \"GitLabTokenDetector\"\n    },\n    {\n      \"name\": \"HexHighEntropyString\",\n      \"limit\": 3.0\n    },\n    {\n      \"name\": \"IbmCloudIamDetector\"\n    },\n    {\n      \"name\": \"IbmCosHmacDetector\"\n    },\n    {\n      \"name\": \"IPPublicDetector\"\n    },\n    {\n      \"name\": \"JwtTokenDetector\"\n    },\n    {\n      \"name\": \"KeywordDetector\",\n      \"keyword_exclude\": \"\"\n    },\n    {\n      \"name\": \"MailchimpDetector\"\n    },\n    {\n      \"name\": \"NpmDetector\"\n    },\n    {\n      \"name\": \"OpenAIDetector\"\n    },\n    {\n      \"name\": \"PrivateKeyDetector\"\n    },\n    {\n      \"name\": \"PypiTokenDetector\"\n    },\n    {\n      \"name\": \"SendGridDetector\"\n    },\n    {\n      \"name\": \"SlackDetector\"\n    },\n    {\n      \"name\": \"SoftlayerDetector\"\n    },\n    {\n      \"name\": \"SquareOAuthDetector\"\n    },\n    {\n      \"name\": \"StripeDetector\"\n    },\n    {\n      \"name\": \"TelegramBotTokenDetector\"\n    },\n    {\n      \"name\": \"TwilioKeyDetector\"\n    }\n  ],\n  \"filters_used\": [\n    {\n      \"path\": \"detect_secrets.filters.allowlist.is_line_allowlisted\"\n    },\n    {\n      \"path\": \"detect_secrets.filters.heuristic.is_indirect_reference\"\n    },\n    {\n      \"path\": \"detect_secrets.filters.heuristic.is_likely_id_string\"\n    },\n    {\n      \"path\": \"detect_secrets.filters.heuristic.is_lock_file\"\n    },\n    {\n      \"path\": \"detect_secrets.filters.heuristic.is_not_alphanumeric_string\"\n    },\n    {\n      \"path\": \"detect_secrets.filters.heuristic.is_potential_uuid\"\n    },\n    {\n      \"path\": \"detect_secrets.filters.heuristic.is_prefixed_with_dollar_sign\"\n    },\n    {\n      \"path\": \"detect_secrets.filters.heuristic.is_sequential_string\"\n    },\n    {\n      \"path\": \"detect_secrets.filters.heuristic.is_swagger_file\"\n    },\n    {\n      \"path\": \"detect_secrets.filters.heuristic.is_templated_secret\"\n    }\n  ],\n  \"results\": {\n    \".bandit.json\": [\n      {\n        \"type\": \"Secret Keyword\",\n        \"filename\": \".bandit.json\",\n        \"hashed_secret\": \"ddb2c93ebcf6098f6ccb08807ed66e02934248a5\",\n        \"is_verified\": false,\n        \"line_number\": 239\n      }\n    ]\n  },\n  \"generated_at\": \"2026-04-26T13:20:56Z\"\n}\n",
+    "pip-audit": "Found 24 known vulnerabilities in 7 packages\n{\"dependencies\": [{\"name\": \"fastapi\", \"version\": \"0.95.0\", \"vulns\": [{\"id\": \"PYSEC-2024-38\", \"fix_versions\": [\"0.109.1\"], \"aliases\": [\"GHSA-qf9m-vfgh-m389\", \"CVE-2024-24762\"], \"description\": \"FastAPI is a web framework for building APIs with Python 3.8+ based on standard Python type hints. When using form data, `python-multipart` uses a Regular Expression to parse the HTTP `Content-Type` header, including options. An attacker could send a custom-made `Content-Type` option that is very difficult for the RegEx to process, consuming CPU resources and stalling indefinitely (minutes or more) while holding the main event loop. This means that process can't handle any more requests. It's a ReDoS(Regular expression Denial of Service), it only applies to those reading form data, using `python-multipart`. This vulnerability has been patched in version 0.109.1.\"}]}, {\"name\": \"sqlalchemy\", \"version\": \"1.4.0\", \"vulns\": []}, {\"name\": \"pyjwt\", \"version\": \"2.6.0\", \"vulns\": [{\"id\": \"GHSA-752w-5fwx-jx9f\", \"fix_versions\": [\"2.12.0\"], \"aliases\": [\"CVE-2026-32597\"], \"description\": \"## Summary  PyJWT does not validate the `crit` (Critical) Header Parameter defined in RFC 7515 \\u00a74.1.11. When a JWS token contains a `crit` array listing extensions that PyJWT does not understand, the library accepts the token instead of rejecting it. This violates the **MUST** requirement in the RFC.  This is the same class of vulnerability as CVE-2025-59420 (Authlib), which received CVSS 7.5 (HIGH).  ---  ## RFC Requirement  RFC 7515 \\u00a74.1.11:  > The \\\"crit\\\" (Critical) Header Parameter indicates that extensions to this > specification and/or [JWA] are being used that **MUST** be understood and > processed. [...] If any of the listed extension Header Parameters are > **not understood and supported** by the recipient, then the **JWS is invalid**.  ---  ## Proof of Concept  ```python import jwt  # PyJWT 2.8.0 import hmac, hashlib, base64, json  # Construct token with unknown critical extension header = {\\\"alg\\\": \\\"HS256\\\", \\\"crit\\\": [\\\"x-custom-policy\\\"], \\\"x-custom-policy\\\": \\\"require-mfa\\\"} payload = {\\\"sub\\\": \\\"attacker\\\", \\\"role\\\": \\\"admin\\\"}  def b64url(data):     return base64.urlsafe_b64encode(data).rstrip(b\\\"=\\\").decode()  h = b64url(json.dumps(header, separators=(\\\",\\\", \\\":\\\")).encode()) p = b64url(json.dumps(payload, separators=(\\\",\\\", \\\":\\\")).encode()) sig = b64url(hmac.new(b\\\"secret\\\", f\\\"{h}.{p}\\\".encode(), hashlib.sha256).digest()) token = f\\\"{h}.{p}.{sig}\\\"  # Should REJECT \\u2014 x-custom-policy is not understood by PyJWT try:     result = jwt.decode(token, \\\"secret\\\", algorithms=[\\\"HS256\\\"])     print(f\\\"ACCEPTED: {result}\\\")     # Output: ACCEPTED: {'sub': 'attacker', 'role': 'admin'} except Exception as e:     print(f\\\"REJECTED: {e}\\\") ```  **Expected:** `jwt.exceptions.InvalidTokenError: Unsupported critical extension: x-custom-policy` **Actual:** Token accepted, payload returned.  ### Comparison with RFC-compliant library  ```python # jwcrypto \\u2014 correctly rejects from jwcrypto import jwt as jw_jwt, jwk key = jwk.JWK(kty=\\\"oct\\\", k=b64url(b\\\"secret\\\")) jw_jwt.JWT(jwt=token, key=key, algs=[\\\"HS256\\\"]) # raises: InvalidJWSObject('Unknown critical header: \\\"x-custom-policy\\\"') ```  ---  ## Impact  - **Split-brain verification** in mixed-library deployments (e.g., API   gateway using jwcrypto rejects, backend using PyJWT accepts) - **Security policy bypass** when `crit` carries enforcement semantics   (MFA, token binding, scope restrictions) - **Token binding bypass** \\u2014 RFC 7800 `cnf` (Proof-of-Possession) can be   silently ignored - See CVE-2025-59420 for full impact analysis  ---  ## Suggested Fix  In `jwt/api_jwt.py`, add validation in `_validate_headers()` or `decode()`:  ```python _SUPPORTED_CRIT = {\\\"b64\\\"}  # Add extensions PyJWT actually supports  def _validate_crit(self, headers: dict) -> None:     crit = headers.get(\\\"crit\\\")     if crit is None:         return     if not isinstance(crit, list) or len(crit) == 0:         raise InvalidTokenError(\\\"crit must be a non-empty array\\\")     for ext in crit:         if ext not in self._SUPPORTED_CRIT:             raise InvalidTokenError(f\\\"Unsupported critical extension: {ext}\\\")         if ext not in headers:             raise InvalidTokenError(f\\\"Critical extension {ext} not in header\\\") ```  ---  ## CWE  - CWE-345: Insufficient Verification of Data Authenticity - CWE-863: Incorrect Authorization  ## References  - [RFC 7515 \\u00a74.1.11](https://www.rfc-editor.org/rfc/rfc7515.html#section-4.1.11) - [CVE-2025-59420 \\u2014 Authlib crit bypass (CVSS 7.5)](https://osv.dev/vulnerability/GHSA-9ggr-2464-2j32) - [RFC 7800 \\u2014 Proof-of-Possession Key Semantics](https://www.rfc-editor.org/rfc/rfc7800)\"}]}, {\"name\": \"requests\", \"version\": \"2.28.0\", \"vulns\": [{\"id\": \"PYSEC-2023-74\", \"fix_versions\": [\"2.31.0\"], \"aliases\": [\"CVE-2023-32681\", \"GHSA-j8r2-6x86-q33q\"], \"description\": \"Requests is a HTTP library. Since Requests 2.3.0, Requests has been leaking Proxy-Authorization headers to destination servers when redirected to an HTTPS endpoint. This is a product of how we use `rebuild_proxies` to reattach the `Proxy-Authorization` header to requests. For HTTP connections sent through the tunnel, the proxy will identify the header in the request itself and remove it prior to forwarding to the destination server. However when sent over HTTPS, the `Proxy-Authorization` header must be sent in the CONNECT request as the proxy has no visibility into the tunneled request. This results in Requests forwarding proxy credentials to the destination server unintentionally, allowing a malicious actor to potentially exfiltrate sensitive information. This issue has been patched in version 2.31.0.  \"}, {\"id\": \"GHSA-9wx4-h78v-vm56\", \"fix_versions\": [\"2.32.0\"], \"aliases\": [\"CVE-2024-35195\"], \"description\": \"When using a `requests.Session`, if the first request to a given origin is made with `verify=False`, TLS certificate verification may remain disabled for all subsequent requests to that origin, even if `verify=True` is explicitly specified later.  This occurs because the underlying connection is reused from the session's connection pool, causing the initial TLS verification setting to persist for the lifetime of the pooled connection. As a result, applications may unintentionally send requests without certificate verification, leading to potential man-in-the-middle attacks and compromised confidentiality or integrity.  This behavior affects versions of `requests` prior to 2.32.0.\"}, {\"id\": \"GHSA-9hjg-9r4m-mvj7\", \"fix_versions\": [\"2.32.4\"], \"aliases\": [\"CVE-2024-47081\"], \"description\": \"### Impact  Due to a URL parsing issue, Requests releases prior to 2.32.4 may leak .netrc credentials to third parties for specific maliciously-crafted URLs.  ### Workarounds For older versions of Requests, use of the .netrc file can be disabled with `trust_env=False` on your Requests Session ([docs](https://requests.readthedocs.io/en/latest/api/#requests.Session.trust_env)).  ### References https://github.com/psf/requests/pull/6965 https://seclists.org/fulldisclosure/2025/Jun/2\"}, {\"id\": \"GHSA-gc5v-m9x4-r6x2\", \"fix_versions\": [\"2.33.0\"], \"aliases\": [\"CVE-2026-25645\"], \"description\": \"### Impact The `requests.utils.extract_zipped_paths()` utility function uses a predictable filename when extracting files from zip archives into the system temporary directory. If the target file already exists, it is reused without validation. A local attacker with write access to the temp directory could pre-create a malicious file that would be loaded in place of the legitimate one.  ### Affected usages **Standard usage of the Requests library is not affected by this vulnerability.** Only applications that call `extract_zipped_paths()` directly are impacted.  ### Remediation Upgrade to at least Requests 2.33.0, where the library now extracts files to a non-deterministic location.  If developers are unable to upgrade, they can set `TMPDIR` in their environment to a directory with restricted write access.\"}]}, {\"name\": \"python-multipart\", \"version\": \"0.0.5\", \"vulns\": [{\"id\": \"GHSA-2jv5-9r88-3w3p\", \"fix_versions\": [\"0.0.7\"], \"aliases\": [\"PYSEC-2024-38\", \"GHSA-qf9m-vfgh-m389\", \"CVE-2024-24762\"], \"description\": \"### Summary  When using form data, `python-multipart` uses a Regular Expression to parse the HTTP `Content-Type` header, including options.  An attacker could send a custom-made `Content-Type` option that is very difficult for the RegEx to process, consuming CPU resources and stalling indefinitely (minutes or more) while holding the main event loop. This means that process can't handle any more requests.  This can create a ReDoS (Regular expression Denial of Service): https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS  This only applies when the app uses form data, parsed with `python-multipart`.  ### Details  A regular HTTP `Content-Type` header could look like:  ``` Content-Type: text/html; charset=utf-8 ```  `python-multipart` parses the option with this RegEx: https://github.com/andrew-d/python-multipart/blob/d3d16dae4b061c34fe9d3c9081d9800c49fc1f7a/multipart/multipart.py#L72-L74  A custom option could be made and sent to the server to break it with:  ``` Content-Type: application/x-www-form-urlencoded; !=\\\\\\\"\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ ```  ### PoC  Create a simple WSGI application, that just parses the `Content-Type`, and run it with `python main.py`:  ```Python # main.py from wsgiref.simple_server import make_server from wsgiref.validate import validator  from multipart.multipart import parse_options_header   def simple_app(environ, start_response):     _, _ = parse_options_header(environ[\\\"CONTENT_TYPE\\\"])      start_response(\\\"200 OK\\\", [(\\\"Content-type\\\", \\\"text/plain\\\")])     return [b\\\"Ok\\\"]   httpd = make_server(\\\"\\\", 8123, validator(simple_app)) print(\\\"Serving on port 8123...\\\") httpd.serve_forever() ```  Then send the attacking request with:  ```console $ curl -v -X 'POST' -H $'Content-Type: application/x-www-form-urlencoded; !=\\\\\\\"\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\' --data-binary 'input=1' 'http://localhost:8123/' ```  ### Impact  This is a ReDoS, (Regular expression Denial of Service), so it only applies to those using python-multipart to read form data, such as Starlette and FastAPI.  ### Original Report  This was originally reported to FastAPI as an email to security@tiangolo.com, sent via https://huntr.com/, the original reporter is Marcello, https://github.com/byt3bl33d3r  <details> <summary>Original report to FastAPI</summary>  Hey Tiangolo!  My name's Marcello and I work on the ProtectAI/Huntr Threat Research team, a few months ago we got a report (from @nicecatch2000) of a ReDoS affecting another very popular Python web framework. After some internal research, I found that FastAPI is vulnerable to the same ReDoS under certain conditions (only when it parses Form data not JSON).  Here are the details: I'm using the latest version of FastAPI (0.109.0) and the following code:  ```Python from typing import Annotated from fastapi.responses import HTMLResponse from fastapi import FastAPI,Form from pydantic import BaseModel  class Item(BaseModel):     username: str  app = FastAPI()  @app.get(\\\"/\\\", response_class=HTMLResponse) async def index():     return HTMLResponse(\\\"Test\\\", status_code=200)  @app.post(\\\"/submit/\\\") async def submit(username: Annotated[str, Form()]):     return {\\\"username\\\": username}  @app.post(\\\"/submit_json/\\\") async def submit_json(item: Item):     return {\\\"username\\\": item.username} ```  I'm running the above with uvicorn with the following command:  ```console uvicorn server:app ```  Then run the following cUrl command:  ``` curl -v -X 'POST' -H $'Content-Type: application/x-www-form-urlencoded; !=\\\\\\\"\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\' --data-binary 'input=1' 'http://localhost:8000/submit/' ```  You'll see the server locks up, is unable to serve anymore requests and one CPU core is pegged to 100%  You can even start uvicorn with multiple workers with the --workers 4 argument and as long as you send (workers + 1) requests you'll completely DoS the FastApi server.  If you try submitting Json to the /submit_json endpoint with the malicious Content-Type header you'll see it isn't vulnerable. So this only affects FastAPI when it parses Form data.  Cheers  #### Impact  An attacker is able to cause a DoS on a FastApi server via a malicious Content-Type header if it parses Form data.  #### Occurrences  [params.py L586](https://github.com/tiangolo/fastapi/blob/d74b3b25659b42233a669f032529880de8bd6c2d/fastapi/params.py#L586)  </details>\"}, {\"id\": \"GHSA-59g5-xgcq-4qw3\", \"fix_versions\": [\"0.0.18\"], \"aliases\": [\"CVE-2024-53981\"], \"description\": \"### Summary  When parsing form data, `python-multipart` skips line breaks (CR `\\\\r` or LF `\\\\n`) in front of the first boundary and any tailing bytes after the last boundary. This happens one byte at a time and emits a log event each time, which may cause excessive logging for certain inputs.  An attacker could abuse this by sending a malicious request with lots of data before the first or after the last boundary, causing high CPU load and stalling the processing thread for a significant amount of time. In case of ASGI application, this could stall the event loop and prevent other requests from being processed, resulting in a denial of service (DoS).  ### Impact  Applications that use `python-multipart` to parse form data (or use frameworks that do so) are affected.   ### Original Report  This security issue was reported by: - GitHub security advisory in Starlette on October 30 by @Startr4ck - Email to `python-multipart` maintainer on October 3 by @mnqazi\"}, {\"id\": \"GHSA-wp53-j4wj-2cfg\", \"fix_versions\": [\"0.0.22\"], \"aliases\": [\"CVE-2026-24486\"], \"description\": \"### Summary  A Path Traversal vulnerability exists when using non-default configuration options `UPLOAD_DIR` and `UPLOAD_KEEP_FILENAME=True`. An attacker can write uploaded files to arbitrary locations on the filesystem by crafting a malicious filename.  ### Details  When `UPLOAD_DIR` is set and `UPLOAD_KEEP_FILENAME` is `True`, the library constructs the file path using `os.path.join(file_dir, fname)`. Due to the behavior of `os.path.join()`, if the filename begins with a `/`, all preceding path components are discarded:  ```py os.path.join(\\\"/upload/dir\\\", \\\"/etc/malicious\\\") == \\\"/etc/malicious\\\" ```                          This allows an attacker to bypass the intended upload directory and write files to arbitrary paths.                                                                                                                                                                                         #### Affected Configuration                                                                                                                                                                                                                                                                      Projects are only affected if all of the following are true:                                                                                      - `UPLOAD_DIR` is set - `UPLOAD_KEEP_FILENAME` is set to True - The uploaded file exceeds `MAX_MEMORY_FILE_SIZE` (triggering a flush to disk)  The default configuration is not vulnerable.                                                                                                                                                                                                                                                #### Impact                                                                                                                                                                                                                                                                                   Arbitrary file write to attacker-controlled paths on the filesystem.                                                                                                                                                                                                                        #### Mitigation                                                                                                                                                                                                                                                                                  Upgrade to version 0.0.22, or avoid using `UPLOAD_KEEP_FILENAME=True` in project configurations.\"}, {\"id\": \"GHSA-mj87-hwqh-73pj\", \"fix_versions\": [\"0.0.26\"], \"aliases\": [\"CVE-2026-40347\"], \"description\": \"### Summary  A denial of service vulnerability exists when parsing crafted `multipart/form-data` requests with large preamble or epilogue sections.  ### Details  Two inefficient multipart parsing paths could be abused with attacker-controlled input.  Before the first multipart boundary, the parser handled leading CR and LF bytes inefficiently while searching for the start of the first part. After the closing boundary, the parser continued processing trailing epilogue data instead of discarding it immediately. As a result, parsing time could grow with the size of crafted data placed before the first boundary or after the closing boundary.  ### Impact  An attacker can send oversized malformed multipart bodies that consume excessive CPU time during request parsing, reducing request-handling capacity and delaying legitimate requests. This issue degrades availability but does not typically result in a complete denial of service for the entire application.  ### Mitigation  Upgrade to version `0.0.26` or later, which skips ahead to the next boundary candidate when processing leading CR/LF data and immediately discards epilogue data after the closing boundary.\"}]}, {\"name\": \"werkzeug\", \"version\": \"2.3.0\", \"vulns\": [{\"id\": \"PYSEC-2023-221\", \"fix_versions\": [\"2.3.8\", \"3.0.1\"], \"aliases\": [\"CVE-2023-46136\", \"GHSA-hrfv-mqp8-q5rw\"], \"description\": \"Werkzeug is a comprehensive WSGI web application library. If an upload of a file that starts with CR or LF and then is followed by megabytes of data without these characters: all of these bytes are appended chunk by chunk into internal bytearray and lookup for boundary is performed on growing buffer. This allows an attacker to cause a denial of service by sending crafted multipart data to an endpoint that will parse it. The amount of CPU time required can block worker processes from handling legitimate requests. This vulnerability has been patched in version 3.0.1.\"}, {\"id\": \"GHSA-2g68-c3qc-8985\", \"fix_versions\": [\"3.0.3\"], \"aliases\": [\"CVE-2024-34069\"], \"description\": \"The debugger in affected versions of Werkzeug can allow an attacker to execute code on a developer's machine under some circumstances. This requires the attacker to get the developer to interact with a domain and subdomain they control, and enter the debugger PIN, but if they are successful it allows access to the debugger even if it is only running on localhost. This also requires the attacker to guess a URL in the developer's application that will trigger the debugger.\"}, {\"id\": \"GHSA-f9vj-2wh5-fj8j\", \"fix_versions\": [\"3.0.6\"], \"aliases\": [\"CVE-2024-49766\"], \"description\": \"On Python < 3.11 on Windows, `os.path.isabs()` does not catch UNC paths like `//server/share`. Werkzeug's `safe_join()` relies on this check, and so can produce a path that is not safe, potentially allowing unintended access to data. Applications using Python >= 3.11, or not using Windows, are not vulnerable.\"}, {\"id\": \"GHSA-q34m-jh98-gwm2\", \"fix_versions\": [\"3.0.6\"], \"aliases\": [\"CVE-2024-49767\"], \"description\": \"Applications using Werkzeug to parse `multipart/form-data` requests are vulnerable to resource exhaustion. A specially crafted form body can bypass the `Request.max_form_memory_size` setting.   The `Request.max_content_length` setting, as well as resource limits provided by deployment software and platforms, are also available to limit the resources used during a request. This vulnerability does not affect those settings. All three types of limits should be considered and set appropriately when deploying an application.\"}, {\"id\": \"GHSA-hgf8-39gv-g3f2\", \"fix_versions\": [\"3.1.4\"], \"aliases\": [\"CVE-2025-66221\"], \"description\": \"Werkzeug's `safe_join` function allows path segments with Windows device names. On Windows, there are special device names such as `CON`, `AUX`, etc that are implicitly present and readable in every directory. `send_from_directory` uses `safe_join` to safely serve files at user-specified paths under a directory. If the application is running on Windows, and the requested path ends with a special device name, the file will be opened successfully, but reading will hang indefinitely.\"}, {\"id\": \"GHSA-87hc-h4r5-73f7\", \"fix_versions\": [\"3.1.5\"], \"aliases\": [\"CVE-2026-21860\"], \"description\": \"Werkzeug's `safe_join` function allows path segments with Windows device names that have file extensions or trailing spaces. On Windows, there are special device names such as `CON`, `AUX`, etc that are implicitly present and readable in every directory. Windows still accepts them with any file extension, such as `CON.txt`, or trailing spaces such as `CON `.  This was previously reported as https://github.com/pallets/werkzeug/security/advisories/GHSA-hgf8-39gv-g3f2, but the fix failed to account for compound extensions such as `CON.txt.html` or trailing spaces. It also missed some additional special names.  `send_from_directory` uses `safe_join` to safely serve files at user-specified paths under a directory. If the application is running on Windows, and the requested path ends with a special device name, the file will be opened successfully, but reading will hang indefinitely.\"}, {\"id\": \"GHSA-29vq-49wr-vm6x\", \"fix_versions\": [\"3.1.6\"], \"aliases\": [\"CVE-2026-27199\"], \"description\": \"Werkzeug's `safe_join` function allows Windows device names as filenames if when preceded by other path segments.  This was previously reported as https://github.com/pallets/werkzeug/security/advisories/GHSA-hgf8-39gv-g3f2, but the added filtering failed to account for the fact that `safe_join` accepts paths with multiple segments, such as `example/NUL`.  `send_from_directory` uses `safe_join` to safely serve files at user-specified paths under a directory. If the application is running on Windows, and the requested path ends with a special device name, the file will be opened successfully, but reading will hang indefinitely.\"}]}, {\"name\": \"uvicorn\", \"version\": \"0.21.1\", \"vulns\": []}, {\"name\": \"charset-normalizer\", \"version\": \"2.0.12\", \"vulns\": []}, {\"name\": \"idna\", \"version\": \"3.13\", \"vulns\": []}, {\"name\": \"pydantic\", \"version\": \"1.10.26\", \"vulns\": []}, {\"name\": \"starlette\", \"version\": \"0.26.1\", \"vulns\": [{\"id\": \"PYSEC-2023-83\", \"fix_versions\": [\"0.27.0\"], \"aliases\": [\"GHSA-v5gw-mw7f-84px\", \"CVE-2023-29159\"], \"description\": \"Directory traversal vulnerability in Starlette versions 0.13.5 and later and prior to 0.27.0 allows a remote unauthenticated attacker to view files in a web service which was built using Starlette.\"}, {\"id\": \"GHSA-f96h-pmfr-66vw\", \"fix_versions\": [\"0.40.0\"], \"aliases\": [\"CVE-2024-47874\"], \"description\": \"### Summary Starlette treats `multipart/form-data` parts without a `filename` as text form fields and buffers those in byte strings with no size limit. This allows an attacker to upload arbitrary large form fields and cause Starlette to both slow down significantly due to excessive memory allocations and copy operations, and also consume more and more memory until the server starts swapping and grinds to a halt, or the OS terminates the server process with an OOM error. Uploading multiple such requests in parallel may be enough to render a service practically unusable, even if reasonable request size limits are enforced by a reverse proxy in front of Starlette.  ### PoC  ```python from starlette.applications import Starlette from starlette.routing import Route  async def poc(request):     async with request.form():         pass  app = Starlette(routes=[     Route('/', poc, methods=[\\\"POST\\\"]), ]) ```  ```sh curl http://localhost:8000 -F 'big=</dev/urandom' ```  ### Impact This Denial of service (DoS) vulnerability affects all applications built with Starlette (or FastAPI) accepting form requests. \"}, {\"id\": \"GHSA-2c2j-9gv5-cj73\", \"fix_versions\": [\"0.47.2\"], \"aliases\": [\"CVE-2025-54121\"], \"description\": \"### Summary When parsing a multi-part form with large files (greater than the [default max spool size](https://github.com/encode/starlette/blob/fa5355442753f794965ae1af0f87f9fec1b9a3de/starlette/formparsers.py#L126)) `starlette` will block the main thread to roll the file over to disk. This blocks the event thread which means we can't accept new connections.  ### Details Please see this discussion for details: https://github.com/encode/starlette/discussions/2927#discussioncomment-13721403. In summary the following UploadFile code (copied from [here](https://github.com/encode/starlette/blob/fa5355442753f794965ae1af0f87f9fec1b9a3de/starlette/datastructures.py#L436C5-L447C14)) has a minor bug. Instead of just checking for `self._in_memory` we should also check if the additional bytes will cause a rollover.  ```python      @property     def _in_memory(self) -> bool:         # check for SpooledTemporaryFile._rolled         rolled_to_disk = getattr(self.file, \\\"_rolled\\\", True)         return not rolled_to_disk      async def write(self, data: bytes) -> None:         if self.size is not None:             self.size += len(data)          if self._in_memory:             self.file.write(data)         else:             await run_in_threadpool(self.file.write, data) ```  I have already created a PR which fixes the problem: https://github.com/encode/starlette/pull/2962   ### PoC See the discussion [here](https://github.com/encode/starlette/discussions/2927#discussioncomment-13721403) for steps on how to reproduce.  ### Impact To be honest, very low and not many users will be impacted. Parsing large forms is already CPU intensive so the additional IO block doesn't slow down `starlette` that much on systems with modern HDDs/SSDs. If someone is running on tape they might see a greater impact.\"}]}, {\"name\": \"anyio\", \"version\": \"4.13.0\", \"vulns\": []}, {\"name\": \"urllib3\", \"version\": \"1.26.20\", \"vulns\": [{\"id\": \"GHSA-pq67-6m6q-mj2v\", \"fix_versions\": [\"2.5.0\"], \"aliases\": [\"CVE-2025-50181\"], \"description\": \"urllib3 handles redirects and retries using the same mechanism, which is controlled by the `Retry` object. The most common way to disable redirects is at the request level, as follows:  ```python resp = urllib3.request(\\\"GET\\\", \\\"https://httpbin.org/redirect/1\\\", redirect=False) print(resp.status) # 302 ```  However, it is also possible to disable redirects, for all requests, by instantiating a `PoolManager` and specifying `retries` in a way that disable redirects:  ```python import urllib3  http = urllib3.PoolManager(retries=0)  # should raise MaxRetryError on redirect http = urllib3.PoolManager(retries=urllib3.Retry(redirect=0))  # equivalent to the above http = urllib3.PoolManager(retries=False)  # should return the first response  resp = http.request(\\\"GET\\\", \\\"https://httpbin.org/redirect/1\\\") ```  However, the `retries` parameter is currently ignored, which means all the above examples don't disable redirects.  ## Affected usages  Passing `retries` on `PoolManager` instantiation to disable redirects or restrict their number.  By default, requests and botocore users are not affected.  ## Impact  Redirects are often used to exploit SSRF vulnerabilities. An application attempting to mitigate SSRF or open redirect vulnerabilities by disabling redirects at the PoolManager level will remain vulnerable.  ## Remediation  You can remediate this vulnerability with the following steps:   * Upgrade to a patched version of urllib3. If your organization would benefit from the continued support of urllib3 1.x, please contact [sethmichaellarson@gmail.com](mailto:sethmichaellarson@gmail.com) to discuss sponsorship or contribution opportunities.  * Disable redirects at the `request()` level instead of the `PoolManager()` level.\"}, {\"id\": \"GHSA-gm62-xv2j-4w53\", \"fix_versions\": [\"2.6.0\"], \"aliases\": [\"CVE-2025-66418\"], \"description\": \"## Impact  urllib3 supports chained HTTP encoding algorithms for response content according to RFC 9110 (e.g., `Content-Encoding: gzip, zstd`).  However, the number of links in the decompression chain was unbounded allowing a malicious server to insert a virtually unlimited number of compression steps leading to high CPU usage and massive memory allocation for the decompressed data.   ## Affected usages  Applications and libraries using urllib3 version 2.5.0 and earlier for HTTP requests to untrusted sources unless they disable content decoding explicitly.   ## Remediation  Upgrade to at least urllib3 v2.6.0 in which the library limits the number of links to 5.  If upgrading is not immediately possible, use [`preload_content=False`](https://urllib3.readthedocs.io/en/2.5.0/advanced-usage.html#streaming-and-i-o) and ensure that `resp.headers[\\\"content-encoding\\\"]` contains a safe number of encodings before reading the response content.\"}, {\"id\": \"GHSA-2xpw-w6gg-jr37\", \"fix_versions\": [\"2.6.0\"], \"aliases\": [\"CVE-2025-66471\"], \"description\": \"### Impact  urllib3's [streaming API](https://urllib3.readthedocs.io/en/2.5.0/advanced-usage.html#streaming-and-i-o) is designed for the efficient handling of large HTTP responses by reading the content in chunks, rather than loading the entire response body into memory at once.  When streaming a compressed response, urllib3 can perform decoding or decompression based on the HTTP `Content-Encoding` header (e.g., `gzip`, `deflate`, `br`, or `zstd`). The library must read compressed data from the network and decompress it until the requested chunk size is met. Any resulting decompressed data that exceeds the requested amount is held in an internal buffer for the next read operation.  The decompression logic could cause urllib3 to fully decode a small amount of highly compressed data in a single operation. This can result in excessive resource consumption (high CPU usage and massive memory allocation for the decompressed data; CWE-409) on the client side, even if the application only requested a small chunk of data.   ### Affected usages  Applications and libraries using urllib3 version 2.5.0 and earlier to stream large compressed responses or content from untrusted sources.  `stream()`, `read(amt=256)`, `read1(amt=256)`, `read_chunked(amt=256)`, `readinto(b)` are examples of `urllib3.HTTPResponse` method calls using the affected logic unless decoding is disabled explicitly.   ### Remediation  Upgrade to at least urllib3 v2.6.0 in which the library avoids decompressing data that exceeds the requested amount.  If your environment contains a package facilitating the Brotli encoding, upgrade to at least Brotli 1.2.0 or brotlicffi 1.2.0.0 too. These versions are enforced by the `urllib3[brotli]` extra in the patched versions of urllib3.   ### Credits  The issue was reported by @Cycloctane. Supplemental information was provided by @stamparm during a security audit performed by [7ASecurity](https://7asecurity.com/) and facilitated by [OSTIF](https://ostif.org/).\"}, {\"id\": \"GHSA-38jv-5279-wg99\", \"fix_versions\": [\"2.6.3\"], \"aliases\": [\"CVE-2026-21441\"], \"description\": \"### Impact  urllib3's [streaming API](https://urllib3.readthedocs.io/en/2.6.2/advanced-usage.html#streaming-and-i-o) is designed for the efficient handling of large HTTP responses by reading the content in chunks, rather than loading the entire response body into memory at once.  urllib3 can perform decoding or decompression based on the HTTP `Content-Encoding` header (e.g., `gzip`, `deflate`, `br`, or `zstd`). When using the streaming API, the library decompresses only the necessary bytes, enabling partial content consumption.  However, for HTTP redirect responses, the library would read the entire response body to drain the connection and decompress the content unnecessarily. This decompression occurred even before any read methods were called, and configured read limits did not restrict the amount of decompressed data. As a result, there was no safeguard against decompression bombs. A malicious server could exploit this to trigger excessive resource consumption on the client (high CPU usage and large memory allocations for decompressed data; CWE-409).  ### Affected usages  Applications and libraries using urllib3 version 2.6.2 and earlier to stream content from untrusted sources by setting `preload_content=False` when they do not disable redirects.   ### Remediation  Upgrade to at least urllib3 v2.6.3 in which the library does not decode content of redirect responses when `preload_content=False`.  If upgrading is not immediately possible, disable [redirects](https://urllib3.readthedocs.io/en/2.6.2/user-guide.html#retrying-requests) by setting `redirect=False` for requests to untrusted source.\"}]}, {\"name\": \"certifi\", \"version\": \"2026.4.22\", \"vulns\": []}, {\"name\": \"click\", \"version\": \"8.3.3\", \"vulns\": []}, {\"name\": \"greenlet\", \"version\": \"3.4.0\", \"vulns\": []}, {\"name\": \"h11\", \"version\": \"0.16.0\", \"vulns\": []}, {\"name\": \"markupsafe\", \"version\": \"3.0.3\", \"vulns\": []}, {\"name\": \"six\", \"version\": \"1.17.0\", \"vulns\": []}, {\"name\": \"typing-extensions\", \"version\": \"4.15.0\", \"vulns\": []}, {\"name\": \"colorama\", \"version\": \"0.4.6\", \"vulns\": []}], \"fixes\": []}\n"
+  }
+}

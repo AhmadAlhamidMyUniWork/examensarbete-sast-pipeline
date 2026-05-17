@@ -1,0 +1,12 @@
+Issue #5: Extern API-integration (GET /external)
+Beskrivning: Implementera endpointen `GET /external` som hämtar data från ett externt API med hjälp av biblioteket `requests==2.28.0`. Endpointen ska fungera som en proxy som anropar en extern tjänst, hanterar svaret och returnerar relevant data till klienten.
+Uppgifter:
+* Installera och konfigurera `requests==2.28.0`
+* Implementera anrop till externt API
+* Skapa endpointen `GET /external` som returnerar data från externa tjänsten
+* Hantera fel (t.ex. timeout, 4xx/5xx-svar)
+Acceptanskriterier:
+* Endpointen returnerar data från det externa API:et vid lyckat anrop
+* Fel från externa API:et hanteras och returneras på ett kontrollerat sätt
+* `requests` används för HTTP-anrop enligt krav
+* Endpointen svarar inom rimlig tid (inkl. timeout-hantering)

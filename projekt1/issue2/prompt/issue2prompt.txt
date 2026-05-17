@@ -1,0 +1,18 @@
+Issue #2: Add database and user model
+
+Beskrivning:
+Implementera SQLite-databas med användarmodell.
+
+Uppgifter:
+- [ ] Skapa database.py med 
+      databasanslutning och init-funktion
+- [ ] Skapa users-tabell med kolumnerna:
+      id, username, password, created_at
+- [ ] Implementera funktionerna:
+      create_user(username, password)
+      get_user_by_username(username)
+- [ ] Lösenord ska lagras med bcrypt
+
+Acceptanskriterier:
+- Kan skapa och hämta en användare via Python
+- Databasanslutning fungerar utan fel

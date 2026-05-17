@@ -1,0 +1,5 @@
+tool,unique,shared
+bandit,1,0
+detect-secrets,1,0
+pip-audit,24,0
+semgrep,1,0

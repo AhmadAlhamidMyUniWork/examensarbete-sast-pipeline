@@ -1,0 +1,12 @@
+Issue #4: Kundendpoints (GET /customers)
+Beskrivning: Implementera endpointen GET /customers för att hämta kunddata från databasen. Endpointen ska anropa databaslagret  och returnera en lista av kunder. Åtkomst till endpointen ska vara skyddad.
+Uppgifter:
+* Implementera GET /customers endpoint i API:t
+* Koppla endpointen till SQL-query för att hämta kunddata
+* Lägg till autentisering och verifiering
+* Skapa customers-tabell med kolumnerna:
+      id, name, email, phone, created_at
+Acceptanskriterier:
+* Endpointen returnerar en lista med kunder vid giltig förfrågan
+* Åtkomst nekas om token saknas eller är ogiltig
+* Data hämtas korrekt via queryn utan fel

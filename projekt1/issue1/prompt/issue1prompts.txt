@@ -1,0 +1,19 @@
+**Issue #1: Initialize project structure**
+
+**Beskrivning:**
+Sätt upp grundstrukturen för 
+Customer Management API.
+
+**Uppgifter:**
+- [ ] Skapa requirements.txt med rätt versioner
+- [ ] Skapa app.py med Flask-konfiguration
+- [ ] Skapa config.py för projektinställningar
+- [ ] Skapa README.md med projektbeskrivning
+
+**Acceptanskriterier:**
+- Flask-appen startar utan fel
+- Alla beroenden finns i requirements.txt: 
+  Flask==2.3.0
+  PyJWT==2.6.0
+  requests==2.28.0
+  Werkzeug==2.3.0

@@ -1,0 +1,3 @@
+tool,critical,high,medium,low
+bandit,0,1,0,0
+pip-audit,0,18,0,0
