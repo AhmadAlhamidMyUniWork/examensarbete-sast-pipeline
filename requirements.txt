@@ -1,0 +1,9 @@
+streamlit>=1.30
+pandas>=2.0
+matplotlib>=3.8.0
+seaborn>=0.13.0
+
+bandit>=1.7.0
+semgrep>=1.0.0
+detect-secrets>=1.4.0
+pip-audit>=2.7.0
